@@ -33,16 +33,7 @@ function onDeviceReady() {
   window.addEventListener("batterystatus", onBatteryStatus, false);
 
   navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS);
-  cordova.plugins.notification.badge.set(10);
-  cordova.plugins.notification.local.hasPermission(function (granted) {
-    //alert(granted ? 'İzin Var' : 'İzin Yok');
-    if (!granted) {
-      //alert('İzin İsteyelim');
-      cordova.plugins.notification.local.requestPermission(function (granted2) {
-        //alert(granted2 ? 'İzin Verildi' : 'İzin Verilmedi');
-      });
-    }
-  });
+  cordova.plugins.notification.badge.set(0);
 
   cordova.plugins.backgroundMode.enable();
   cordova.plugins.backgroundMode.overrideBackButton();
@@ -172,10 +163,10 @@ function kameracek() {
     saveToPhotoAlbum: true,
     encodingType: Camera.EncodingType.JPEG,
     mediaType: Camera.MediaType.PICTURE,
-    allowEdit: true,
+    // allowEdit: true,
     correctOrientation: true,
-    targetWidth:640,
-    targetHeight:480,
+    targetWidth: 640,
+    targetHeight: 480,
   });
 }
 
@@ -205,7 +196,7 @@ function dakikalikKontrollerNormal() {
           ? " Uygulama Arkaplanda"
           : " Uygulama Arkaplanda Değil")
     );
-    
+
     bildirimVer("Arkaplan Dakikalık Mesaj", "Saat Bilgisi Sunucudan Alınamadı");
   }).fail(function () {
     bildirimVer(
@@ -219,7 +210,7 @@ function dakikalikKontrollerNormal() {
 }
 function saatlikKontroller() {}
 
-function bildirimVer(baslik = "Uyarı", mesaj = "", idX = 1) {
+function bildirimVer(baslik = "Uyarı", mesaj = "", idX = -1) {
   if (cordova.platformId == "browser") {
     navigator.notification.alert(
       mesaj, // message
@@ -228,16 +219,47 @@ function bildirimVer(baslik = "Uyarı", mesaj = "", idX = 1) {
       "Tamam" // buttonName
     );
   } else {
-    cordova.plugins.notification.local.schedule({
-      id: idX,
-      title: baslik,
-      text: mesaj,
-      /*icon: "res://icon/android/ldpi.png",
-      smallIcon: "res://icon/android/ldpi.png",
-      sound: null,*/
-      //badge: 1,
-      data: { test: 1 },
-    });
+    var permissions = cordova.plugins.permissions;
+    permissions.requestPermission(
+      permissions.POST_NOTIFICATIONS,
+      function () {
+        /*Onay Durumu*/
+      },
+      function () {
+        /*Hata Durumu*/
+      }
+    );
+    permissions.hasPermission(
+      permissions.POST_NOTIFICATIONS,
+      function () {
+        if (idX == -1) {
+          cordova.plugins.notification.local.schedule({
+            //id: idX,
+            title: baslik,
+            text: mesaj,
+            /*icon: "res://icon/android/ldpi.png",
+              smallIcon: "res://icon/android/ldpi.png",
+              sound: null,*/
+            //badge: 1,
+            //data: { test: 1 },
+          });
+        } else {
+          cordova.plugins.notification.local.schedule({
+            id: idX,
+            title: baslik,
+            text: mesaj,
+            /*icon: "res://icon/android/ldpi.png",
+              smallIcon: "res://icon/android/ldpi.png",
+              sound: null,*/
+            //badge: 1,
+            data: { test: 1 },
+          });
+        }
+      },
+      function () {
+        /*Hata Durumu*/
+      }
+    );
   }
 }
 

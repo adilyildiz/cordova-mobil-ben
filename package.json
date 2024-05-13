@@ -15,6 +15,7 @@
   "devDependencies": {
     "cordova-android": "^12.0.1",
     "cordova-browser": "^7.0.0",
+    "cordova-plugin-android-permissions": "^1.1.5",
     "cordova-plugin-background-mode": "github:adilyildiz/cordova-plugin-background-mode",
     "cordova-plugin-badge": "github:adilyildiz/cordova-plugin-badge",
     "cordova-plugin-battery-status": "^2.0.3",
@@ -40,7 +41,8 @@
         "ANDROID_SUPPORT_V4_VERSION": "26.+"
       },
       "cordova-plugin-background-mode": {},
-      "cordova-plugin-dialogs": {}
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-android-permissions": {}
     }
   }
 }
