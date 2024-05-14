@@ -52,16 +52,28 @@
                             <p class="event received">Cihaza Erişildi</p>
                         </div>
                         <div>
-                            Cihaz Pil Durumu <span id="pildurumu"></span>
+                            Cihaz Pil Durumu: <span id="pildurumu"></span>
                         </div> 
                         <div>
-                            Cihaz Konum Durumu <span id="konumdurumu"></span>
+                            Cihaz Konum Durumu: <span id="konumdurumu"></span>
+                        </div> 
+                        
+                        <div>
+                            Cihaz Bağlantı Durumu: <span id="baglantidurumu"></span>
+                        </div> 
+                        
+                        <div>
+                            QR/Barkod Durumu: <span id="qrdurumu"></span>
                         </div> 
                         <div>
-                            <button onclick="kameracek()">Kameradan Görüntü Al</button>
+                            <button onclick="kameracek()" class="btn btn-primary">Kameradan Görüntü Al</button>
                         </div>  
                         <div>
-                            <button onclick="bildirimAc()">Bildirim Aç</button>
+                            <button onclick="bildirimAc()" class="btn btn-secondary">Bildirim Aç</button>
+                        </div>  
+                        
+                        <div>
+                            <button onclick="qrkontrol()" class="btn btn-success">QR/Barkod Oku</button>
                         </div>  
                         <div>
                             <img id="myImage" src="img/logo.png">

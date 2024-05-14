@@ -32,7 +32,10 @@ function onDeviceReady() {
 
   window.addEventListener("batterystatus", onBatteryStatus, false);
 
-  navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS);
+  setInterval(function () {
+    saniyelikKontroller();
+  }, 1000);
+
   cordova.plugins.notification.badge.set(0);
 
   cordova.plugins.backgroundMode.enable();
@@ -66,7 +69,7 @@ function onDeviceReady() {
       });
     });
     intervalDakika = setInterval(function () {
-      dakikalikKontroller();
+      //dakikalikKontroller();
     }, 60000);
   });
   cordova.plugins.backgroundMode.on("deactivate", function () {
@@ -96,13 +99,27 @@ function onDeviceReady() {
     clearInterval(intervalDakika);
   });
   /*
-  setInterval(function () {
-    saniyelikKontroller();
-  }, 1000);
+  
   setInterval(function () {
     dakikalikKontrollerNormal();
   }, 60000);
   */
+}
+
+function checkConnection() {
+  var networkState = navigator.connection.type;
+
+  var states = {};
+  states[Connection.UNKNOWN] = "Unknown connection";
+  states[Connection.ETHERNET] = "Ethernet connection";
+  states[Connection.WIFI] = "WiFi connection";
+  states[Connection.CELL_2G] = "Cell 2G connection";
+  states[Connection.CELL_3G] = "Cell 3G connection";
+  states[Connection.CELL_4G] = "Cell 4G connection";
+  states[Connection.CELL] = "Cell generic connection";
+  states[Connection.NONE] = "No network connection";
+  document.getElementById("baglantidurumu").innerHTML =
+    "" + states[networkState];
 }
 
 window.addEventListener("batterystatus", onBatteryStatus, false);
@@ -170,6 +187,29 @@ function kameracek() {
   });
 }
 
+function qrkontrol() {
+  cordova.plugins.scanner.scan(
+    {
+      prompt_message: "Kod Taratınız", // Change the info message. A blank message ('') will show a default message
+      orientation_locked: false, // Lock the orientation screen
+      camera_id: 0, // Choose the camera source
+      beep_enabled: true, // Enables a beep after the scan
+      scan_type: "normal", // Types of scan mode: normal = default black with white background / inverted = white bars on dark background / mixed = normal and inverted modes
+      barcode_formats: [],
+      //barcode_formats: ["QR_CODE", "CODE_39", "CODE_128"], // Put a list of formats that the scanner will find. A blank list ([]) will enable scan of all barcode types
+      extras: {}, // Additional extra parameters. See [ZXing Journey Apps][1] IntentIntegrator and Intents for more details
+    },
+    function (f) {
+      document.getElementById("qrdurumu").innerHTML = JSON.stringify(f);
+      console.log(f);
+    },
+    function (f) {
+      document.getElementById("qrdurumu").innerHTML = JSON.stringify(f);
+      console.log(f);
+    }
+  );
+}
+
 function bildirimAc() {
   $.get("https://adilyildiz.com.tr/tarih.php", function (data) {
     bildirimVer("Anlık Mesaj", "Şu An Saat: " + data);
@@ -178,7 +218,10 @@ function bildirimAc() {
   });
 }
 
-function saniyelikKontroller() {}
+function saniyelikKontroller() {
+  navigator.geolocation.getCurrentPosition(onSuccessGPS, onErrorGPS);
+  checkConnection();
+}
 function dakikalikKontrollerArkaplan() {
   $.get("https://adilyildiz.com.tr/tarih.php", function (data) {
     bildirimVer("Arkaplan Dakikalık Mesaj", "Şu An Saat: " + data);
@@ -229,7 +272,7 @@ function bildirimVer(baslik = "Uyarı", mesaj = "", idX = -1) {
         /*Hata Durumu*/
       }
     );
-    permissions.hasPermission(
+    permissions.checkPermission(
       permissions.POST_NOTIFICATIONS,
       function () {
         if (idX == -1) {
