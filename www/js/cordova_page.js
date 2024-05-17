@@ -261,6 +261,17 @@ function bildirimVer(baslik = "Uyarı", mesaj = "", idX = -1) {
       baslik, // title
       "Tamam" // buttonName
     );
+  } else if(cordova.platformId == "ios"){
+    cordova.plugins.notification.local.schedule({
+      //id: idX,
+      title: baslik,
+      text: mesaj,
+      /*icon: "res://icon/android/ldpi.png",
+        smallIcon: "res://icon/android/ldpi.png",
+        sound: null,*/
+      //badge: 1,
+      //data: { test: 1 },
+    });
   } else {
     var permissions = cordova.plugins.permissions;
     permissions.requestPermission(
