@@ -26,6 +26,7 @@
         </edit-config>
     </platform>"
     <platform name="android">
+        <preference name="AndroidLaunchMode" value="singleTask" />
         <preference name="SplashMaintainAspectRatio" value="true" />
         <preference name="SplashShowOnlyFirstTime" value="true" />
         <!--  Needed for Android 12  -->
@@ -45,6 +46,12 @@
                 android:windowSoftInputMode="stateAlwaysHidden"
                 tools:replace="android:screenOrientation" />
         </config-file>
+        
     </platform>
-
+    <universal-links>
+        <host name="cordova.adilyildiz.com.tr" scheme="https" />
+        <host name="cordova-7163c.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback"/>
+        </host>
+    </universal-links>
 </widget>
