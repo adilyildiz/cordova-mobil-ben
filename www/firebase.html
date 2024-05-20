@@ -22,7 +22,7 @@
        * TODO(DEVELOPER): Paste the initialization snippet from this dialog box:
        * Firebase Console > Project Settings > Add App > Web.
        ***************************************************************************************** -->
-    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth__tr.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
     
     </head>
@@ -55,7 +55,7 @@
                 <h2 class="section-title">Firebase Süreçleri</h2>
 
                 <div class="about__container bd-grid">
-                    <div id="loading">Loading...</div>
+                    <div id="loading">Yükleniyor...</div>
                     <div id="loaded" class="hidden">
                       <div id="main">
                         <div id="user-signed-in" class="hidden">
@@ -70,13 +70,13 @@
                             <div class="clearfix"></div>
                           </div>
                           <p>
-                            <button id="sign-out">Sign Out</button>
-                            <button id="delete-account">Delete account</button>
+                            <button id="sign-out">Çıkış Yap</button>
+                            <button id="delete-account">Hesap Sil</button>
                           </p>
                         </div>
                         <div id="user-signed-out" class="hidden">
-                          <h4>You are signed out.</h4>
-                          <fieldset>
+                          <h4>Çıkış Yaptınız.</h4>
+                          <fieldset style="display: none;">
                             <legend>Configuration</legend>
                             reCAPTCHA mode for Phone Auth:
                             <label for="recaptcha-normal">
@@ -103,12 +103,12 @@
                             <label for="admin-restricted-operation-status">Admin restricted operation status:</label>
                             <input type="checkbox" id="admin-restricted-operation-status" name="adminRestrictedOperationStatus">
                           </fieldset>
-                          <p>
+                          <p style="display: none;">
                             <button id="sign-in-with-redirect">Sign In with Redirect</button>
                             <button id="sign-in-with-popup">Sign In with Popup</button>
                           </p>
                           <div id="firebaseui-spa">
-                            <h5>Single Page Application mode:</h5>
+                            <h5>Giriş Sayfası:</h5>
                             <div id="firebaseui-container"></div>
                           </div>
                         </div>

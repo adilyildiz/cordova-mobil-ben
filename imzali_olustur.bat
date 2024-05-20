@@ -1,1 +1,0 @@
-cordova build android --release -- --keystore=keystore.jks --storePassword=159753 --alias=benadil --password=159753 --packageType=bundle

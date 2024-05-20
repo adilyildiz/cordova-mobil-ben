@@ -1,0 +1,1 @@
+cordova run android --release -- --keystore=keystore.jks --storePassword=123456 --alias=benadil --password=123456 --packageType=apk
