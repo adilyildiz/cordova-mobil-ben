@@ -11,6 +11,9 @@
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <preference name="OverrideUserAgent" value="Mozilla/5.0 (Linux; Android 7.1.2; MI 5X; Flow) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/347.0.0.268 Mobile Safari/537.36" />
     <platform name="ios">
         <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
             <string>need camera access to take pictures</string>
@@ -24,6 +27,7 @@
         <edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
             <string>need photo library access to save pictures there</string>
         </edit-config>
+        <resource-file src="GoogleService-Info.plist" />
     </platform>"
     <platform name="android">
         <preference name="AndroidLaunchMode" value="singleTask" />
@@ -46,7 +50,7 @@
                 android:windowSoftInputMode="stateAlwaysHidden"
                 tools:replace="android:screenOrientation" />
         </config-file>
-        
+        <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
     <universal-links>
         <host name="cordova.adilyildiz.com.tr" scheme="https" />

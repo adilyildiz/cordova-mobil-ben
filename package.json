@@ -25,17 +25,19 @@
     "cordova-plugin-deeplinks-ios-build-fix": "^1.0.10",
     "cordova-plugin-device": "^2.1.0",
     "cordova-plugin-dialogs": "^2.0.2",
+    "cordova-plugin-firebase-authentication": "^7.0.1",
     "cordova-plugin-geolocation": "^5.0.0",
     "cordova-plugin-inappbrowser": "^6.0.0",
     "cordova-plugin-local-notification": "github:adilyildiz/cordova-plugin-local-notifications",
     "cordova-plugin-network-information": "^3.0.0",
-    "cordova-plugin-qrscan": "^1.0.2-r"
+    "cordova-plugin-qrscan": "^1.0.2-r",
+    "cordova-support-android-plugin": "~2.0.4"
   },
   "cordova": {
     "platforms": [
-      "browser",
       "ios",
-      "android"
+      "android",
+      "browser"
     ],
     "plugins": {
       "cordova-plugin-battery-status": {},
@@ -60,7 +62,10 @@
       },
       "cordova-plugin-buildinfo": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-deeplinks": {}
+      "cordova-plugin-deeplinks": {},
+      "cordova-plugin-firebase-authentication": {
+        "ANDROID_FIREBASE_BOM_VERSION": "30.3.1"
+      }
     }
   },
   "dependencies": {
