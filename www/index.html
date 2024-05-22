@@ -4,25 +4,10 @@
         
         <title>Adil YILDIZ Kimdir?</title>        
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script>
-            var jqxhr = $.ajax( {
-                type: "GET",
-                url: "theme/head.html",
-                cache: false,
-                async: false
-            })
-            .done(function(data) {
-                $("head").append(data);
-            })
-            
-        </script>
+        <headicerik></headicerik>
     </head>
     <body>
-        <!--===== HEADER =====-->
-        <header class="l-header" id="menuheader">
-            
-        </header>
-
+        <ustmenu></ustmenu>
         <main class="l-main">
             <!--===== HOME =====-->
             <section class="home bd-grid" id="home">
@@ -156,50 +141,11 @@
                     </a>
                 </div>
             </section>
-
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">İletişim</h2>
-
-                <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Ad Soyad" class="contact__input">
-                        <input type="mail" placeholder="Eposta" class="contact__input">
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Gönder" class="contact__button button">
-                    </form>
-                </div>
-            </section>
         </main>
-
-        <!--===== FOOTER =====-->
-        <footer class="footer">
-            <p class="footer__title">Adil YILDIZ <a href="gizlilikpolitikasi.html">Gizlilik Politikası</a></p>            
-            
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="https://twitter.com/adil_yildiztr" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
-            </div>
-            <p class="footer__copy">&#169; . Tüm hakları saklıdır.</p>
-        </footer>
-
-    
-    
-    
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  
-
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
-
-        <!--===== MAIN JS =====-->
+        
+        <altfoot></altfoot>
         <script src="js/themeloader.js"></script>
-        <script src="js/main.js"></script>
-
-        <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
-        <script src="js/firebase_kontrol.js"></script>
+    
     </body>
 </html>
 

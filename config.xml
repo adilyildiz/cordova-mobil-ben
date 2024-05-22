@@ -51,6 +51,7 @@
                 tools:replace="android:screenOrientation" />
         </config-file>
         <resource-file src="google-services.json" target="app/google-services.json" />
+        <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     </platform>
     <universal-links>
         <host name="cordova.adilyildiz.com.tr" scheme="https" />
