@@ -1,3 +1,4 @@
+console.log("head yükleniyor");
 var jqxhr = $.ajax( {
     type: "GET",
     url: "theme/head.html",
@@ -6,8 +7,9 @@ var jqxhr = $.ajax( {
 })
 .done(function(data) {
     $("headicerik").replaceWith(data);
+    console.log("head yüklendi");
 })
-
+console.log("menü yükleniyor");
 var jqxhr = $.ajax( {
     type: "GET",
     url: "theme/menu.html",
@@ -16,9 +18,10 @@ var jqxhr = $.ajax( {
 })
 .done(function(data) {
     $("ustmenu").replaceWith(data);
+    console.log("menu yüklendi");
 })
 
-
+console.log("foot yükleniyor");
 var jqxhr = $.ajax( {
     type: "GET",
     url: "theme/footer.html",
@@ -27,4 +30,5 @@ var jqxhr = $.ajax( {
 })
 .done(function(data) {    
     $("altfoot").replaceWith(data);
+    console.log("foot yüklendi");
 })

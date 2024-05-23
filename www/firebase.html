@@ -3,25 +3,14 @@
     <head>
       <title>Ayarlar</title>        
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-      <script>
-          var jqxhr = $.ajax( {
-              type: "GET",
-              url: "theme/head.html",
-              cache: false,
-              async: false
-          })
-          .done(function(data) {
-              $("head").append(data);
-          })
-          
-      </script>
+      <headicerik></headicerik>
     </head>
     <body>
       <ustmenu></ustmenu>
         <main class="l-main">
-            
+            <div class="container">
             <!--===== HOME =====-->
-            <section class="section " id="cordova">
+            <section class="section bd-grid" id="cordova">
                 <h2 class="section-title">Kullanıcı İşlemleri</h2>
                     <div id="loading">Yükleniyor...</div>
                     <div id="loaded" class="hidden">
@@ -34,6 +23,7 @@
                             <div id="name"></div>
                             <div id="email"></div>
                             <div id="phone"></div>
+                            <div id="is-new-user"></div>
                             <div id="is-new-user"></div>
                             <div class="clearfix"></div>
                           </div>
@@ -51,7 +41,7 @@
                       </div>
                     </div>   
             </section>
-
+          </div>
         </main>
         <altfoot></altfoot>
         <script src="js/themeloader.js"></script>

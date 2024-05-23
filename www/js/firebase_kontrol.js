@@ -3,6 +3,7 @@ var CLIENT_ID = "222896488227-o7i0kmtf9sp8vlafcmv72943r5mc81to.apps.googleuserco
 var config = {
   apiKey: "AIzaSyAS95wBeBzLLexbFLaTCWo5eYF-l6dCU90",
   authDomain: "cordova-7163c.firebaseapp.com",
+  projectId: "cordova-7163c",
   /*databaseURL: "https://your-app.firebaseio.com",
   storageBucket: "your-app.appspot.com",*/
 };
