@@ -29,13 +29,14 @@
     "cordova-plugin-inappbrowser": "^6.0.0",
     "cordova-plugin-local-notification": "github:adilyildiz/cordova-plugin-local-notifications",
     "cordova-plugin-network-information": "^3.0.0",
-    "cordova-plugin-qrscan": "^1.0.2-r"
+    "cordova-plugin-qrscan": "^1.0.2-r",
+    "cordova-support-android-plugin": "~2.0.4"
   },
   "cordova": {
     "platforms": [
-      "browser",
       "ios",
-      "android"
+      "android",
+      "browser"
     ],
     "plugins": {
       "cordova-plugin-battery-status": {},

@@ -51,10 +51,11 @@
             "type": "cordova",
             "request": "launch",
             "platform": "browser",
-            "target": "chrome",
+            "target": "edge",
             "simulatePort": 8000,
             "livereload": true,
-            "sourceMaps": true,
+            "ionicLiveReload":true,
+            "sourceMaps": false,
             "cwd": "${workspaceFolder}"
         }
     ]

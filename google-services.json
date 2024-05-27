@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "222896488227",
+    "project_id": "cordova-7163c",
+    "storage_bucket": "cordova-7163c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222896488227:android:4172bc98e64d35e0a29696",
+        "android_client_info": {
+          "package_name": "tr.com.adilyildiz.ben"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222896488227-o7i0kmtf9sp8vlafcmv72943r5mc81to.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATjkn8-OFUBcEASNmHdYSBsxsB8fwq7fs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "222896488227-o7i0kmtf9sp8vlafcmv72943r5mc81to.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
